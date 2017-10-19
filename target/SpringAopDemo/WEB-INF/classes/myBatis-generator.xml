@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<classPathEntry location="C://extlib//mysql-connector-java-5.1.31.jar" />
+
+	<context id="DB2Tables" targetRuntime="MyBatis3">
+		<!--
+			<plugin type="org.mybatis.generator.plugins.MapperConfigPlugin" >
+			<property name="fileName" value="MapperConfig.xml" /> <property
+			name="targetProject" value="src" /> <property name="targetPackage"
+			value="config" /> </plugin>
+		-->
+		<!-- <plugin type="com.zjdx.common.mybatis.utils.SerializablePlugin" />
+		<plugin type="com.zjdx.common.mybatis.utils.PaginationPlugin" /> -->
+		<commentGenerator>
+			<property name="suppressDate" value="true" />
+		</commentGenerator>
+
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/test" userId="root"
+			password="Zhang123">
+		</jdbcConnection>
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+
+		<javaModelGenerator targetPackage="com.aop.model" targetProject="src/main/java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+
+		<sqlMapGenerator targetPackage="com.aop.mapper"
+			targetProject="src/main/java">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+
+		<javaClientGenerator type="XMLMAPPER" targetPackage="com.aop.mapper" targetProject="src/main/java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+		
+		<table schema="" tableName="user" domainObjectName="User"></table>
+	
+ 
+<!--  		<table schema="" tableName="yun_interface_base_info" domainObjectName="YunInterfaceBaseInfo"></table>
+ --> 		
+ </context>
+
+</generatorConfiguration>
